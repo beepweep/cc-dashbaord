@@ -34,15 +34,14 @@ export default function Header() {
                     <Link href="/#" className={`font-medium text-sm transition-colors drop-shadow-sm ${isLightPage ? 'text-slate-700 hover:text-slate-900' : 'text-white/80 hover:text-white'
                         }`}>Blog</Link>
                 </nav>
-                <Link
-                    href="/get-listed"
+                <button
                     className={`px-5 py-2 rounded-full text-sm font-medium backdrop-blur-md transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 ${isLightPage
                         ? 'bg-slate-900 border border-slate-900 text-white hover:bg-slate-800'
                         : 'bg-white/20 border border-white/50 text-white hover:bg-white/30'
                         }`}
                 >
                     Let's Start
-                </Link>
+                </button>
             </div>
         </header>
     );

@@ -7,6 +7,9 @@ export default function GetListedPage() {
     const [formData, setFormData] = useState<any>({});
     const [captcha, setCaptcha] = useState({ num1: 0, num2: 0 });
     const [userCaptcha, setUserCaptcha] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [errorMessage, setErrorMessage] = useState("");
 
     React.useEffect(() => {
         setCaptcha({
@@ -16,17 +19,74 @@ export default function GetListedPage() {
     }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value, type } = e.target;
+        if (type === 'checkbox') {
+            const checked = (e.target as HTMLInputElement).checked;
+            setFormData({ ...formData, [name]: checked });
+        } else {
+            setFormData({ ...formData, [name]: value });
+        }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Validate captcha
         if (parseInt(userCaptcha) !== captcha.num1 + captcha.num2) {
-            alert("Incorrect captcha. Please try again.");
+            setSubmitStatus('error');
+            setErrorMessage("Incorrect captcha. Please try again.");
             return;
         }
-        alert("Form submitted! (This is a mock)");
-        console.log(formData);
+
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
+        setErrorMessage("");
+
+        try {
+            // TODO: Replace with your Google Apps Script Web App URL
+            const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+            if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                // For testing without Google Sheets setup
+                console.log('Form data:', formData);
+                await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate network delay
+                setSubmitStatus('success');
+                setFormData({});
+                setUserCaptcha("");
+                // Generate new captcha
+                setCaptcha({
+                    num1: Math.floor(Math.random() * 10),
+                    num2: Math.floor(Math.random() * 10)
+                });
+                return;
+            }
+
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            // Note: no-cors mode doesn't allow reading response, so we assume success
+            setSubmitStatus('success');
+            setFormData({});
+            setUserCaptcha("");
+            // Generate new captcha
+            setCaptcha({
+                num1: Math.floor(Math.random() * 10),
+                num2: Math.floor(Math.random() * 10)
+            });
+
+        } catch (error) {
+            console.error('Submission error:', error);
+            setSubmitStatus('error');
+            setErrorMessage("Failed to submit form. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -305,13 +365,65 @@ export default function GetListedPage() {
                         </div>
                     </div>
 
+                    {/* Status Messages */}
+                    {submitStatus === 'success' && (
+                        <div className="rounded-lg bg-green-50 p-4 border border-green-200">
+                            <div className="flex">
+                                <svg className="h-5 w-5 text-green-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                </svg>
+                                <div className="ml-3">
+                                    <p className="text-sm font-medium text-green-800">
+                                        Form submitted successfully! We'll review your application and get back to you soon.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
+                    {submitStatus === 'error' && (
+                        <div className="rounded-lg bg-red-50 p-4 border border-red-200">
+                            <div className="flex">
+                                <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                                </svg>
+                                <div className="ml-3">
+                                    <p className="text-sm font-medium text-red-800">
+                                        {errorMessage}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     <div className="flex items-center justify-end gap-x-6 pt-6">
-                        <button type="button" className="text-sm font-semibold leading-6 text-slate-900 hover:text-slate-700 transition-colors">Cancel</button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setFormData({});
+                                setUserCaptcha("");
+                                setSubmitStatus('idle');
+                            }}
+                            className="text-sm font-semibold leading-6 text-slate-900 hover:text-slate-700 transition-colors"
+                        >
+                            Clear Form
+                        </button>
                         <button
                             type="submit"
-                            className="rounded-full bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all hover:scale-105"
+                            disabled={isSubmitting}
+                            className="rounded-full bg-blue-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center gap-2"
                         >
-                            Submit Application
+                            {isSubmitting ? (
+                                <>
+                                    <svg className="animate-spin h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    Submitting...
+                                </>
+                            ) : (
+                                'Submit Application'
+                            )}
                         </button>
                     </div>
                 </form>

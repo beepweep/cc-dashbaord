@@ -30,6 +30,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Configure for GitHub Pages
+        run: |
+          cat > next.config.production.ts << 'EOF'
+          import type { NextConfig } from "next";
+
+          const nextConfig: NextConfig = {
+            output: 'export',
+            basePath: '/cc-dashbaord',
+            images: {
+              unoptimized: true,
+            },
+          };
+
+          export default nextConfig;
+          EOF
+          mv next.config.production.ts next.config.ts
+
       - name: Build with Next.js
         run: npm run build
 

@@ -38,9 +38,9 @@ export default function FAQ() {
     };
 
     return (
-        <section className="relative bg-slate-950 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <section className="relative bg-black py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
             {/* Background gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-950 to-slate-900/50"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-black to-slate-900/50"></div>
 
             <div className="max-w-3xl mx-auto relative z-10">
                 {/* Header */}

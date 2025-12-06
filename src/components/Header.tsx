@@ -8,7 +8,8 @@ export default function Header() {
     const isLightPage = pathname?.includes('/privacy-policy') ||
         pathname?.includes('/terms-of-use') ||
         pathname?.includes('/get-listed') ||
-        pathname?.includes('/media-kit');
+        pathname?.includes('/media-kit') ||
+        pathname?.includes('/blog');
 
     return (
         <header className="absolute top-0 left-0 right-0 z-50 px-8 py-8 flex items-center justify-between">
@@ -31,7 +32,7 @@ export default function Header() {
                         }`}>Compare</Link>
                     <Link href="/get-listed" className={`font-medium text-sm transition-colors drop-shadow-sm ${isLightPage ? 'text-slate-700 hover:text-slate-900' : 'text-white/80 hover:text-white'
                         }`}>Get listed</Link>
-                    <Link href="/#" className={`font-medium text-sm transition-colors drop-shadow-sm ${isLightPage ? 'text-slate-700 hover:text-slate-900' : 'text-white/80 hover:text-white'
+                    <Link href="/blog" className={`font-medium text-sm transition-colors drop-shadow-sm ${isLightPage ? 'text-slate-700 hover:text-slate-900' : 'text-white/80 hover:text-white'
                         }`}>Blog</Link>
                 </nav>
                 <button

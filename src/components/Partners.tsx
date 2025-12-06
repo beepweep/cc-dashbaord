@@ -26,8 +26,8 @@ export default function Partners() {
         <section className="bg-gray-50 py-20 border-t border-gray-200">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-3">Partners</h2>
-                    <p className="text-sm text-slate-600">Trusted by leading entities in the crypto space.</p>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-3">Current listed cards</h2>
+                    <p className="text-sm text-slate-600">Explore crypto cards from leading providers worldwide.</p>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 border-t border-l border-gray-200">

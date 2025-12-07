@@ -280,13 +280,13 @@ export default async function CardDetailPage({ params }: { params: Promise<{ id:
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex flex-col lg:flex-row gap-12 items-center">
                         {/* Card Image - Clean Design */}
-                        <div className="relative w-80 aspect-[1.586/1] lg:w-96 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 hover:-rotate-1 transition-all duration-500 bg-slate-100">
+                        <div className={`relative w-80 h-48 lg:w-96 lg:h-60 bg-gradient-to-br ${card.color} rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 hover:-rotate-1 transition-all duration-500`}>
                             {/* Card Background */}
                             <Image
                                 src={card.image}
                                 alt={card.name}
                                 fill
-                                className="object-cover"
+                                className="object-cover opacity-50"
                             />
 
                             {/* Verification Status Badge */}

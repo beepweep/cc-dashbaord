@@ -8,7 +8,6 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cardforyou.com'),
   title: {
     default: "Cardforyou - Find the Perfect Crypto Card",
     template: "%s | Cardforyou",

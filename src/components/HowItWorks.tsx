@@ -22,46 +22,46 @@ const steps = [
 
 export default function HowItWorks() {
     return (
-        <section className="relative bg-slate-950 py-24 px-4 sm:px-5 lg:px-6 overflow-hidden">
+        <section className="relative bg-slate-950 py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
             {/* Subtle grid pattern */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.015)_1px,transparent_1px)] bg-[size:56px_56px]" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.015)_1px,transparent_1px)] bg-[size:64px_64px]" />
 
-            <div className="max-w-5xl mx-auto relative z-10">
+            <div className="max-w-6xl mx-auto relative z-10">
                 {/* Section Header */}
-                <div className="text-center mb-16">
-                    <span className="inline-block text-xs font-medium text-slate-500 tracking-wider uppercase mb-3">
+                <div className="text-center mb-20">
+                    <span className="inline-block text-sm font-medium text-slate-500 tracking-wider uppercase mb-4">
                         Simple Process
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                         How It Works
                     </h2>
-                    <p className="text-base text-slate-400 max-w-xl mx-auto">
+                    <p className="text-lg text-slate-400 max-w-2xl mx-auto">
                         Find and compare the best crypto cards in three simple steps.
                     </p>
                 </div>
 
                 {/* Steps */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
                     {steps.map((step, index) => (
                         <div key={step.number} className="relative group">
                             {/* Connector line for desktop */}
                             {index < steps.length - 1 && (
-                                <div className="hidden md:block absolute top-6 left-1/2 w-full h-px bg-gradient-to-r from-slate-700 via-slate-600 to-slate-700" />
+                                <div className="hidden md:block absolute top-8 left-1/2 w-full h-px bg-gradient-to-r from-slate-700 via-slate-600 to-slate-700" />
                             )}
 
                             <div className="relative">
                                 {/* Step Number */}
-                                <div className="relative z-10 w-12 h-12 mx-auto mb-6 flex items-center justify-center">
-                                    <div className="absolute inset-0 bg-slate-800 rounded-xl rotate-45 transition-transform group-hover:rotate-[55deg] group-hover:scale-110 duration-300" />
-                                    <span className="relative text-lg font-bold text-white">{step.number}</span>
+                                <div className="relative z-10 w-16 h-16 mx-auto mb-8 flex items-center justify-center">
+                                    <div className="absolute inset-0 bg-slate-800 rounded-2xl rotate-45 transition-transform group-hover:rotate-[55deg] group-hover:scale-110 duration-300" />
+                                    <span className="relative text-xl font-bold text-white">{step.number}</span>
                                 </div>
 
                                 {/* Content */}
                                 <div className="text-center">
-                                    <h3 className="text-lg font-semibold text-white mb-3">
+                                    <h3 className="text-xl font-semibold text-white mb-4">
                                         {step.title}
                                     </h3>
-                                    <p className="text-sm text-slate-400 leading-relaxed">
+                                    <p className="text-slate-400 leading-relaxed">
                                         {step.description}
                                     </p>
                                 </div>
@@ -71,17 +71,17 @@ export default function HowItWorks() {
                 </div>
 
                 {/* CTA Section */}
-                <div className="mt-16 text-center">
-                    <div className="inline-flex flex-col sm:flex-row gap-3 items-center">
+                <div className="mt-20 text-center">
+                    <div className="inline-flex flex-col sm:flex-row gap-4 items-center">
                         <Link
                             href="/explore-cards"
-                            className="px-6 py-3 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition-all hover:scale-105 text-sm"
+                            className="px-8 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-slate-100 transition-all hover:scale-105"
                         >
                             Start Exploring Cards
                         </Link>
                         <Link
                             href="/blog"
-                            className="px-6 py-3 text-white font-medium hover:text-slate-300 transition-colors text-sm"
+                            className="px-8 py-4 text-white font-medium hover:text-slate-300 transition-colors"
                         >
                             Learn More →
                         </Link>

@@ -300,7 +300,7 @@ function CompareCardsContent() {
                             >
                                 <div className="flex items-start justify-between mb-4">
                                     <div className="w-20 h-12 rounded-lg relative overflow-hidden bg-slate-100">
-                                        <Image src={card.image} alt={card.name} fill className="object-cover" />
+                                        <Image src={card.image} alt={card.name} fill className="object-contain" />
                                     </div>
                                     {selectedCards.includes(card.id) && (
                                         <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center">
@@ -371,8 +371,8 @@ function CompareCardsContent() {
                                     : "border-slate-200 bg-white hover:border-slate-300"
                                     } ${!selectedCards.includes(card.id) && selectedCards.length >= 3 ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}`}
                             >
-                                <div className="w-full aspect-[1.586/1] rounded-lg mb-3 relative overflow-hidden bg-slate-100">
-                                    <Image src={card.image} alt={card.name} fill className="object-cover" />
+                                <div className="w-full aspect-[1.6/1] rounded-lg mb-3 relative overflow-hidden bg-slate-100">
+                                    <Image src={card.image} alt={card.name} fill className="object-contain p-1" />
                                 </div>
                                 <p className="text-sm font-semibold text-slate-900 truncate">{card.name}</p>
                                 <p className="text-xs text-slate-500">{card.provider}</p>
@@ -457,8 +457,11 @@ function CompareCardsContent() {
                                         </th>
                                         {comparisonCards.map((card) => (
                                             <th key={card.id} className="px-6 py-4 text-center min-w-[220px]">
-                                                <div className="w-full aspect-[1.586/1] rounded-xl mb-3 relative overflow-hidden bg-slate-100">
-                                                    <Image src={card.image} alt={card.name} fill className="object-cover" />
+                                                <div className={`w-full h-28 bg-gradient-to-br ${card.color} rounded-xl mb-3 relative overflow-hidden`}>
+                                                    <Image src={card.image} alt={card.name} fill className="object-cover opacity-30" />
+                                                    <div className="absolute bottom-3 left-3 text-white">
+                                                        <p className="text-lg font-bold">{card.cashback}</p>
+                                                    </div>
                                                 </div>
                                                 <p className="text-sm font-semibold text-slate-900">{card.name}</p>
                                                 <p className="text-xs text-slate-500">{card.provider}</p>

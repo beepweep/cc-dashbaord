@@ -74,20 +74,20 @@ export default function BlogPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <div className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <div className="bg-gradient-to-b from-slate-50 to-white pt-28 pb-16 px-3 sm:px-5 lg:px-7 border-b border-gray-200">
+                <div className="max-w-6xl mx-auto text-center">
+                    <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
                         Crypto Card Insights
                     </h1>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    <p className="text-base text-slate-600 max-w-xl mx-auto">
                         Expert guides, comparisons, and tips to help you make the most of your crypto cards
                     </p>
                 </div>
             </div>
 
             {/* Blog Grid */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7 py-14">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                     {blogPosts.map((post) => (
                         <article
                             key={post.id}
@@ -149,12 +149,12 @@ export default function BlogPage() {
             </div>
 
             {/* Newsletter Section */}
-            <div className="bg-slate-900 py-16 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-3xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold text-white mb-4">
+            <div className="bg-slate-900 py-14 px-3 sm:px-5 lg:px-7">
+                <div className="max-w-2xl mx-auto text-center">
+                    <h2 className="text-2xl font-bold text-white mb-3">
                         Stay Updated
                     </h2>
-                    <p className="text-slate-300 mb-8">
+                    <p className="text-sm text-slate-300 mb-7">
                         Get the latest crypto card news, guides, and exclusive offers delivered to your inbox.
                     </p>
                     <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">

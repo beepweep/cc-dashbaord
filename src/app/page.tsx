@@ -25,10 +25,10 @@ export default function Home() {
         </div>
 
         {/* Main Content */}
-        <div className="text-center px-4 -mt-32 relative z-10">
-          <div className="relative flex items-center justify-center gap-8 mb-6">
+        <div className="text-center px-3 -mt-28 relative z-10">
+          <div className="relative flex items-center justify-center gap-7 mb-5">
             {/* Left Image */}
-            <div className="hidden lg:block relative w-32 h-32 flex-shrink-0">
+            <div className="hidden lg:block relative w-28 h-28 flex-shrink-0">
               <Image
                 src="/left.png.webp"
                 alt="Left decoration"
@@ -39,14 +39,14 @@ export default function Home() {
             </div>
 
             {/* Heading */}
-            <h1 className="text-[60px] font-semibold text-center leading-tight drop-shadow-md">
+            <h1 className="text-[52px] font-semibold text-center leading-tight drop-shadow-md">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white/90 to-white/35">
                 Find the perfect card for you
               </span>
             </h1>
 
             {/* Right Image */}
-            <div className="hidden lg:block relative w-32 h-32 flex-shrink-0">
+            <div className="hidden lg:block relative w-28 h-28 flex-shrink-0">
               <Image
                 src="/right.png.webp"
                 alt="Right decoration"
@@ -57,7 +57,7 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="text-base md:text-lg text-blue-50/70 font-medium leading-relaxed drop-shadow-sm">
+          <p className="text-sm md:text-base text-blue-50/70 font-medium leading-relaxed drop-shadow-sm">
             Access and compare top-tier crypto cards from around the world. <br className="hidden md:block" />
             Spend Smarter, Earn Higher.
           </p>

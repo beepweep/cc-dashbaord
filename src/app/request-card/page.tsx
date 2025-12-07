@@ -66,25 +66,25 @@ export default function RequestCardPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <div className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-12 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
-                <div className="max-w-3xl mx-auto text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 text-blue-700 rounded-full text-sm font-medium mb-6">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-gradient-to-b from-slate-50 to-white pt-28 pb-10 px-3 sm:px-5 lg:px-7 border-b border-gray-200">
+                <div className="max-w-2xl mx-auto text-center">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-xs font-medium mb-5">
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                         </svg>
                         Request a Card
                     </div>
-                    <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+                    <h1 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                         Can't Find a Card?
                     </h1>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    <p className="text-base text-slate-600 max-w-xl mx-auto">
                         Let us know which crypto card you'd like to see on Cardforyou. We'll review your request and add it to our database.
                     </p>
                 </div>
             </div>
 
             {/* Form Section */}
-            <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="max-w-xl mx-auto px-3 sm:px-5 lg:px-7 py-10">
                 <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Card Name */}
                     <div>

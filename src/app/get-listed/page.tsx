@@ -105,21 +105,21 @@ export default function GetListedPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 text-slate-900">
-            <div className="relative overflow-hidden bg-white pt-32 pb-20 border-b border-gray-200">
+            <div className="relative overflow-hidden bg-white pt-28 pb-16 border-b border-gray-200">
                 {/* Background effects - subtle light theme */}
                 <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-gray-50"></div>
 
-                <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 text-center">
-                    <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                <div className="mx-auto max-w-6xl px-5 lg:px-7 relative z-10 text-center">
+                    <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">
                         Get Your Card Listed
                     </h1>
-                    <p className="mt-4 text-base leading-7 text-slate-600 max-w-2xl mx-auto">
+                    <p className="mt-3 text-sm leading-7 text-slate-600 max-w-xl mx-auto">
                         Join the leading crypto card comparison platform. Submit your details below to reach thousands of potential users.
                     </p>
                 </div>
             </div>
 
-            <div className="mx-auto max-w-3xl px-6 lg:px-8 py-16 relative z-10">
+            <div className="mx-auto max-w-2xl px-5 lg:px-7 py-14 relative z-10">
                 <form onSubmit={handleSubmit} className="space-y-12">
 
                     {/* Section 1: Contact Info */}

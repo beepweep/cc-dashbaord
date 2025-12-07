@@ -242,12 +242,12 @@ export default function ExploreCardsPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <div className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <div className="bg-gradient-to-b from-slate-50 to-white pt-28 pb-16 px-3 sm:px-5 lg:px-7 border-b border-gray-200">
+                <div className="max-w-6xl mx-auto text-center">
+                    <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
                         Explore Crypto Cards
                     </h1>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    <p className="text-base text-slate-600 max-w-xl mx-auto">
                         Compare and discover the perfect crypto card for your lifestyle. Filter by type, rewards, and features.
                     </p>
                 </div>
@@ -255,10 +255,10 @@ export default function ExploreCardsPage() {
 
             {/* Filters Section */}
             <div className="bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-                    <div className="space-y-4">
+                <div className="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7 py-5">
+                    <div className="space-y-3">
                         {/* Row 1: Material, Staking, Cashback */}
-                        <div className="flex flex-wrap gap-4 items-center">
+                        <div className="flex flex-wrap gap-3 items-center">
                             {/* Material Filter */}
                             <div className="flex items-center gap-2">
                                 <span className="text-sm font-medium text-slate-700">Material:</span>
@@ -508,8 +508,8 @@ export default function ExploreCardsPage() {
             )}
 
             {/* Cards Grid */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7 py-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {sortedCards.map((card) => (
                         <Link
                             key={card.id}

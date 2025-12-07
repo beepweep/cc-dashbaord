@@ -233,18 +233,18 @@ function CompareCardsContent() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <div className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <div className="bg-gradient-to-b from-slate-50 to-white pt-28 pb-16 px-3 sm:px-5 lg:px-7 border-b border-gray-200">
+                <div className="max-w-6xl mx-auto text-center">
+                    <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
                         Compare Crypto Cards
                     </h1>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    <p className="text-base text-slate-600 max-w-xl mx-auto">
                         Select up to 3 cards to compare their features, fees, and rewards side by side.
                     </p>
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div className="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7 py-10">
                 {/* Selected Cards Preview */}
                 {selectedCards.length > 0 && (
                     <div className="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200">

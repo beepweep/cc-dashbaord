@@ -6,33 +6,33 @@ export default function AffiliateProgramPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <div className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <div className="bg-gradient-to-b from-slate-50 to-white pt-28 pb-16 px-3 sm:px-5 lg:px-7 border-b border-gray-200">
+                <div className="max-w-3xl mx-auto text-center">
+                    <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">
                         Join Our Affiliate Program
                     </h1>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
+                    <p className="text-base text-slate-600 max-w-xl mx-auto mb-7">
                         Earn competitive commissions by promoting the best crypto cards to your audience.
                         Partner with Cardforyou and monetize your content today.
                     </p>
-                    <button className="px-8 py-4 rounded-full bg-slate-900 text-white text-base font-semibold hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl">
+                    <button className="px-7 py-3 rounded-full bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-colors shadow-lg hover:shadow-xl">
                         Apply Now
                     </button>
                 </div>
             </div>
 
             {/* Benefits Section */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <div className="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7 py-16">
+                <div className="text-center mb-14">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                         Why Partner With Us?
                     </h2>
-                    <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                    <p className="text-base text-slate-600 max-w-xl mx-auto">
                         Join hundreds of content creators earning passive income through our affiliate program
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
                     <div className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-lg transition-shadow">
                         <div className="text-4xl mb-4">💰</div>
                         <h3 className="text-xl font-bold text-slate-900 mb-3">
@@ -96,18 +96,18 @@ export default function AffiliateProgramPage() {
             </div>
 
             {/* How It Works Section */}
-            <div className="bg-slate-50 py-20 px-4 sm:px-6 lg:px-8">
-                <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            <div className="bg-slate-50 py-16 px-3 sm:px-5 lg:px-7">
+                <div className="max-w-3xl mx-auto">
+                    <div className="text-center mb-14">
+                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
                             How It Works
                         </h2>
-                        <p className="text-lg text-slate-600">
+                        <p className="text-base text-slate-600">
                             Start earning in three simple steps
                         </p>
                     </div>
 
-                    <div className="space-y-8">
+                    <div className="space-y-7">
                         <div className="flex gap-6 items-start">
                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-slate-900 text-white flex items-center justify-center text-xl font-bold">
                                 1

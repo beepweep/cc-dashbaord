@@ -51,6 +51,10 @@
   animation-play-state: paused;
 }
 
+html {
+  font-size: 80%;
+}
+
 body {
   font-family: var(--font-sora), system-ui, sans-serif;
 }

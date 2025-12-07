@@ -9,7 +9,11 @@ export default function Header() {
         pathname?.includes('/terms-of-use') ||
         pathname?.includes('/get-listed') ||
         pathname?.includes('/media-kit') ||
-        pathname?.includes('/blog');
+        pathname?.includes('/blog') ||
+        pathname?.includes('/explore-cards') ||
+        pathname?.includes('/compare-cards') ||
+        pathname?.includes('/request-card') ||
+        pathname?.includes('/affiliate-program');
 
     return (
         <header className="absolute top-0 left-0 right-0 z-50 px-8 py-8 flex items-center justify-between">
@@ -26,22 +30,34 @@ export default function Header() {
             </Link>
 
             {/* Navigation & CTA */}
-            <div className="flex items-center gap-6">
-                <nav className="hidden md:flex items-center gap-6">
-                    <Link href="/#" className={`font-medium text-sm transition-colors drop-shadow-sm ${isLightPage ? 'text-slate-700 hover:text-slate-900' : 'text-white/80 hover:text-white'
-                        }`}>Compare</Link>
+            <div className="flex items-center gap-3">
+                <nav className="hidden md:flex items-center gap-4">
+                    <Link href="/explore-cards" className={`font-medium text-sm transition-colors drop-shadow-sm ${isLightPage ? 'text-slate-700 hover:text-slate-900' : 'text-white/80 hover:text-white'
+                        }`}>Explore cards</Link>
+                    <Link href="/compare-cards" className={`font-medium text-sm transition-colors drop-shadow-sm ${isLightPage ? 'text-slate-700 hover:text-slate-900' : 'text-white/80 hover:text-white'
+                        }`}>Compare cards</Link>
                     <Link href="/get-listed" className={`font-medium text-sm transition-colors drop-shadow-sm ${isLightPage ? 'text-slate-700 hover:text-slate-900' : 'text-white/80 hover:text-white'
                         }`}>Get listed</Link>
                     <Link href="/blog" className={`font-medium text-sm transition-colors drop-shadow-sm ${isLightPage ? 'text-slate-700 hover:text-slate-900' : 'text-white/80 hover:text-white'
                         }`}>Blog</Link>
                 </nav>
+                <Link href="/affiliate-program">
+                    <button
+                        className={`px-5 py-2 rounded-full text-sm font-medium transition-all hover:shadow-lg hover:-translate-y-0.5 ${isLightPage
+                            ? 'border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white'
+                            : 'border-2 border-white/50 text-white hover:bg-white/10'
+                            }`}
+                    >
+                        Affiliate program
+                    </button>
+                </Link>
                 <button
                     className={`px-5 py-2 rounded-full text-sm font-medium backdrop-blur-md transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 ${isLightPage
                         ? 'bg-slate-900 border border-slate-900 text-white hover:bg-slate-800'
                         : 'bg-white/20 border border-white/50 text-white hover:bg-white/30'
                         }`}
                 >
-                    Let's Start
+                    Pick for me
                 </button>
             </div>
         </header>

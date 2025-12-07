@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import Partners from "@/components/Partners";
+import HowItWorks from "@/components/HowItWorks";
+import BlogSection from "@/components/BlogSection";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
@@ -22,10 +24,7 @@ export default function Home() {
           <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
         </div>
 
-
-
-
-
+        {/* Main Content */}
         <div className="text-center px-4 -mt-32 relative z-10">
           <div className="relative flex items-center justify-center gap-8 mb-6">
             {/* Left Image */}
@@ -69,6 +68,12 @@ export default function Home() {
       <div className="relative z-10 bg-white">
         <Partners />
       </div>
+
+      {/* How It Works Section */}
+      <HowItWorks />
+
+      {/* Blog Section */}
+      <BlogSection />
 
       {/* FAQ Section */}
       <FAQ />

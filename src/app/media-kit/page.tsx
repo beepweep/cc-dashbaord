@@ -1,6 +1,6 @@
 export default function MediaKit() {
     return (
-        <main className="min-h-screen bg-white py-20 px-4 sm:px-6 lg:px-8">
+        <main className="min-h-screen bg-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-4xl font-bold text-slate-900 mb-4">Media Kit</h1>
                 <p className="text-base text-slate-600 mb-12">

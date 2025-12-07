@@ -74,7 +74,7 @@ export default function BlogPage() {
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <div className="bg-gradient-to-b from-slate-50 to-white py-20 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
+            <div className="bg-gradient-to-b from-slate-50 to-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 border-b border-gray-200">
                 <div className="max-w-7xl mx-auto text-center">
                     <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
                         Crypto Card Insights
@@ -116,9 +116,11 @@ export default function BlogPage() {
                                     <span>{post.readTime}</span>
                                 </div>
 
-                                <h2 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2">
-                                    {post.title}
-                                </h2>
+                                <Link href={`/blog/${post.id}`}>
+                                    <h2 className="text-xl font-semibold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors line-clamp-2 cursor-pointer">
+                                        {post.title}
+                                    </h2>
+                                </Link>
 
                                 <p className="text-sm text-slate-600 mb-4 line-clamp-3">
                                     {post.excerpt}

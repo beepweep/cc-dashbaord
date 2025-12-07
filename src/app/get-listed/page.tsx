@@ -3,6 +3,20 @@
 import React, { useState } from "react";
 import Image from "next/image";
 
+// Helper component for info buttons
+const InfoButton = ({ title }: { title: string }) => (
+    <button
+        type="button"
+        className="text-blue-600 hover:text-blue-700"
+        title={title}
+    >
+        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+        </svg>
+    </button>
+);
+
+
 export default function GetListedPage() {
     const [formData, setFormData] = useState<any>({});
     const [captcha, setCaptcha] = useState({ num1: 0, num2: 0 });
@@ -91,7 +105,7 @@ export default function GetListedPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 text-slate-900">
-            <div className="relative overflow-hidden bg-white py-20 sm:py-24 border-b border-gray-200">
+            <div className="relative overflow-hidden bg-white pt-32 pb-20 border-b border-gray-200">
                 {/* Background effects - subtle light theme */}
                 <div className="absolute inset-0 -z-10 bg-gradient-to-b from-blue-50 via-white to-gray-50"></div>
 
@@ -139,51 +153,159 @@ export default function GetListedPage() {
                     {/* Section 2: Basic Card Details */}
                     <div className="border-b border-gray-200 pb-12">
                         <h2 className="text-xl font-semibold leading-7 text-slate-900">Basic Card Details</h2>
+
+                        {/* Already Listed Toggle */}
+                        <div className="mt-6 flex items-center gap-3 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                            <input
+                                type="checkbox"
+                                name="alreadyListed"
+                                id="alreadyListed"
+                                onChange={handleChange}
+                                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-600"
+                            />
+                            <label htmlFor="alreadyListed" className="text-sm font-medium text-slate-900 cursor-pointer">
+                                Already listed here?
+                            </label>
+                            <button
+                                type="button"
+                                className="ml-1 text-blue-600 hover:text-blue-700"
+                                title="Check this if your card is already listed on our platform and you want to update the information"
+                            >
+                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        {/* Conditional Link Field */}
+                        {formData.alreadyListed && (
+                            <div className="mt-6">
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Link to Your Existing Listing *
+                                    <button
+                                        type="button"
+                                        className="text-blue-600 hover:text-blue-700"
+                                        title="Provide the URL of your existing card listing on our platform"
+                                    >
+                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </label>
+                                <div className="mt-2">
+                                    <input
+                                        type="url"
+                                        name="existingListingLink"
+                                        required={formData.alreadyListed}
+                                        onChange={handleChange}
+                                        className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                                        placeholder="https://cardforyou.com/cards/your-card"
+                                    />
+                                </div>
+                            </div>
+                        )}
+
                         <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
                             <div>
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Card Name *</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Card Name *
+                                    <button
+                                        type="button"
+                                        className="text-blue-600 hover:text-blue-700"
+                                        title="The official name of your crypto card"
+                                    >
+                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </label>
                                 <div className="mt-2">
                                     <input type="text" name="cardName" required onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" />
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Issuer/Provider</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Issuer/Provider
+                                    <button
+                                        type="button"
+                                        className="text-blue-600 hover:text-blue-700"
+                                        title="The company or organization issuing the card"
+                                    >
+                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </label>
                                 <div className="mt-2">
                                     <input type="text" name="issuer" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" />
                                 </div>
                             </div>
                             <div className="sm:col-span-2">
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Website URL</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Website URL
+                                    <button
+                                        type="button"
+                                        className="text-blue-600 hover:text-blue-700"
+                                        title="Official website URL for your card"
+                                    >
+                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </label>
                                 <div className="mt-2">
                                     <input type="url" name="website" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" placeholder="https://" />
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Launch Date</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Launch Date
+                                    <button
+                                        type="button"
+                                        className="text-blue-600 hover:text-blue-700"
+                                        title="The date your card was officially launched or became available"
+                                    >
+                                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </label>
                                 <div className="mt-2">
                                     <input type="date" name="launchDate" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" />
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Region</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Region
+                                    <InfoButton title="Primary region where the card is available (e.g., Global, EEA, US)" />
+                                </label>
                                 <div className="mt-2">
                                     <input type="text" name="region" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" placeholder="e.g. Global, EEA, US" />
                                 </div>
                             </div>
                             <div className="sm:col-span-2">
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Supported Regions (List)</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Supported Regions (List)
+                                    <InfoButton title="List all countries or regions where this card can be used" />
+                                </label>
                                 <div className="mt-2">
                                     <textarea name="supportedRegions" rows={3} onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" placeholder="List countries or regions..." />
                                 </div>
                             </div>
                             <div className="sm:col-span-2">
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Excluded Countries (List)</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Excluded Countries (List)
+                                    <InfoButton title="List any countries or regions where the card is NOT available" />
+                                </label>
                                 <div className="mt-2">
                                     <textarea name="excludedCountries" rows={2} onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" />
                                 </div>
                             </div>
                             <div className="sm:col-span-2">
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Image URL (Logo/Card Art)</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Image URL (Logo/Card Art)
+                                    <InfoButton title="URL to high-quality image of your card or logo (PNG, JPG, or WebP recommended)" />
+                                </label>
                                 <div className="mt-2">
                                     <input type="url" name="image" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" placeholder="https://" />
                                 </div>
@@ -196,7 +318,10 @@ export default function GetListedPage() {
                         <h2 className="text-xl font-semibold leading-7 text-slate-900">Card Specifications</h2>
                         <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
                             <div>
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Payment Network</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Payment Network
+                                    <InfoButton title="The payment network used by the card (Visa, Mastercard, etc.)" />
+                                </label>
                                 <div className="mt-2">
                                     <select name="network" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
                                         <option value="">Select...</option>
@@ -208,7 +333,10 @@ export default function GetListedPage() {
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Card Type</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Card Type
+                                    <InfoButton title="Whether the card is a debit, credit, or prepaid card" />
+                                </label>
                                 <div className="mt-2">
                                     <select name="type" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
                                         <option value="">Select...</option>
@@ -219,7 +347,10 @@ export default function GetListedPage() {
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Material</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Material
+                                    <InfoButton title="Physical material of the card (Plastic, Metal, or Virtual only)" />
+                                </label>
                                 <div className="mt-2">
                                     <select name="material" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
                                         <option value="">Select...</option>
@@ -230,13 +361,19 @@ export default function GetListedPage() {
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Base Currency</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Base Currency
+                                    <InfoButton title="The primary currency for the card account (e.g., USD, EUR, GBP)" />
+                                </label>
                                 <div className="mt-2">
                                     <input type="text" name="baseCurrency" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" placeholder="e.g. USD, EUR, GBP" />
                                 </div>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium leading-6 text-slate-900">Status</label>
+                                <label className="flex items-center gap-2 text-sm font-medium leading-6 text-slate-900">
+                                    Status
+                                    <InfoButton title="Current availability status of the card" />
+                                </label>
                                 <div className="mt-2">
                                     <select name="status" onChange={handleChange} className="block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6">
                                         <option value="Active">Active</option>
@@ -253,27 +390,27 @@ export default function GetListedPage() {
                         <h2 className="text-xl font-semibold leading-7 text-slate-900">Fees & Limits</h2>
                         <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-3">
                             {/* Standard Fees */}
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Issuance Fee</label><input type="text" name="issuanceFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Monthly/Annual Fee</label><input type="text" name="monthlyFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">FX Fee (%)</label><input type="text" name="fxFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Issuance Fee <InfoButton title="One-time fee to issue the card" /></label><input type="text" name="issuanceFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Monthly/Annual Fee <InfoButton title="Recurring fee charged monthly or annually" /></label><input type="text" name="monthlyFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">FX Fee (%) <InfoButton title="Foreign exchange fee percentage" /></label><input type="text" name="fxFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
 
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">ATM Withdrawal Fee</label><input type="text" name="atmFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Top-Up Fee</label><input type="text" name="topUpFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Inactivity Fee</label><input type="text" name="inactivityFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">ATM Withdrawal Fee <InfoButton title="Fee for ATM cash withdrawals" /></label><input type="text" name="atmFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Top-Up Fee <InfoButton title="Fee for adding funds to the card" /></label><input type="text" name="topUpFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Inactivity Fee <InfoButton title="Fee charged for prolonged inactivity" /></label><input type="text" name="inactivityFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
 
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Replacement Fee</label><input type="text" name="replacementFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Custody Fee</label><input type="text" name="custodyFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Liquidation Fee</label><input type="text" name="liquidationFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Replacement Fee <InfoButton title="Fee for replacing a lost or damaged card" /></label><input type="text" name="replacementFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Custody Fee <InfoButton title="Fee for holding crypto assets" /></label><input type="text" name="custodyFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Liquidation Fee <InfoButton title="Fee for converting crypto to fiat" /></label><input type="text" name="liquidationFee" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
 
                             {/* Limits */}
                             <div className="sm:col-span-3 border-t border-gray-200 pt-4 mt-2"><h4 className="text-sm font-medium text-slate-900 mb-2">Limits</h4></div>
 
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Free ATM Limit</label><input type="text" name="freeAtmLimit" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Daily Spending Limit</label><input type="text" name="dailyLimit" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Monthly Spending Limit</label><input type="text" name="monthlyLimit" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Free ATM Limit <InfoButton title="Number of free ATM withdrawals per period" /></label><input type="text" name="freeAtmLimit" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Daily Spending Limit <InfoButton title="Maximum daily spending amount" /></label><input type="text" name="dailyLimit" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Monthly Spending Limit <InfoButton title="Maximum monthly spending amount" /></label><input type="text" name="monthlyLimit" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
 
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Min Balance</label><input type="text" name="minBalance" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-1"><label className="block text-xs font-medium text-slate-700">Top-Up Limits</label><input type="text" name="topUpLimits" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Min Balance <InfoButton title="Minimum balance required to maintain the card" /></label><input type="text" name="minBalance" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-1"><label className="flex items-center gap-1 text-xs font-medium text-slate-700">Top-Up Limits <InfoButton title="Maximum amount that can be loaded per transaction or period" /></label><input type="text" name="topUpLimits" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
                         </div>
                     </div>
 
@@ -281,21 +418,21 @@ export default function GetListedPage() {
                     <div className="border-b border-gray-200 pb-12">
                         <h2 className="text-xl font-semibold leading-7 text-slate-900">Rewards & Staking</h2>
                         <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
-                            <div><label className="block text-sm font-medium text-slate-900">Base Cashback Rate (%)</label><input type="text" name="baseCashback" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div><label className="block text-sm font-medium text-slate-900">Max Cashback Rate (%)</label><input type="text" name="maxCashback" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Base Cashback Rate (%) <InfoButton title="Standard cashback percentage for purchases" /></label><input type="text" name="baseCashback" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Max Cashback Rate (%) <InfoButton title="Maximum cashback percentage achievable" /></label><input type="text" name="maxCashback" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
 
-                            <div><label className="block text-sm font-medium text-slate-900">Reward Currency</label><input type="text" name="rewardCurrency" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" placeholder="e.g. BTC, CRO, Points" /></div>
-                            <div><label className="block text-sm font-medium text-slate-900">Monthly Reward Cap</label><input type="text" name="rewardCap" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Reward Currency <InfoButton title="Currency in which rewards are paid (e.g., BTC, CRO, Points)" /></label><input type="text" name="rewardCurrency" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" placeholder="e.g. BTC, CRO, Points" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Monthly Reward Cap <InfoButton title="Maximum rewards that can be earned per month" /></label><input type="text" name="rewardCap" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
 
-                            <div className="sm:col-span-2"><label className="block text-sm font-medium text-slate-900">Boost / Special Categories</label><input type="text" name="boost" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-2"><label className="block text-sm font-medium text-slate-900">Merchant Rebates (e.g. Spotify, Netflix)</label><input type="text" name="rebates" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-2"><label className="block text-sm font-medium text-slate-900">Staking Yield (APY)</label><input type="text" name="stakingYield" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-2"><label className="block text-sm font-medium text-slate-900">Welcome Bonus</label><input type="text" name="welcomeBonus" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-2"><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Boost / Special Categories <InfoButton title="Special categories or merchants with higher cashback rates" /></label><input type="text" name="boost" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-2"><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Merchant Rebates (e.g. Spotify, Netflix) <InfoButton title="Subscription services or merchants with special rebates" /></label><input type="text" name="rebates" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-2"><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Staking Yield (APY) <InfoButton title="Annual percentage yield for staking tokens" /></label><input type="text" name="stakingYield" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-2"><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Welcome Bonus <InfoButton title="Sign-up or welcome bonus for new cardholders" /></label><input type="text" name="welcomeBonus" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
 
-                            <div><label className="block text-sm font-medium text-slate-900">Referral Bonus</label><input type="text" name="referralBonus" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div><label className="block text-sm font-medium text-slate-900">Referral T&C</label><input type="text" name="referralTc" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Referral Bonus <InfoButton title="Bonus for referring new users" /></label><input type="text" name="referralBonus" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Referral T&C <InfoButton title="Terms and conditions for referral program" /></label><input type="text" name="referralTc" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
 
-                            <div className="sm:col-span-2"><label className="block text-sm font-medium text-slate-900">Additional Points Info</label><textarea name="additionalPoints" rows={2} onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-2"><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Additional Points Info <InfoButton title="Any additional information about rewards or points program" /></label><textarea name="additionalPoints" rows={2} onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
                         </div>
                     </div>
 
@@ -303,13 +440,13 @@ export default function GetListedPage() {
                     <div className="border-b border-gray-200 pb-12">
                         <h2 className="text-xl font-semibold leading-7 text-slate-900">Requirements</h2>
                         <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
-                            <div><label className="block text-sm font-medium text-slate-900">Required Token</label><input type="text" name="requiredToken" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div><label className="block text-sm font-medium text-slate-900">Fiat Value Requirement</label><input type="text" name="fiatReq" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div><label className="block text-sm font-medium text-slate-900">Lock-Up Period</label><input type="text" name="lockup" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div><label className="block text-sm font-medium text-slate-900">Tier Downgrade Penalty</label><input type="text" name="downgradePenalty" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Required Token <InfoButton title="Token that must be staked or held (if any)" /></label><input type="text" name="requiredToken" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Fiat Value Requirement <InfoButton title="Minimum fiat value required for staking" /></label><input type="text" name="fiatReq" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Lock-Up Period <InfoButton title="Duration tokens must be locked/staked" /></label><input type="text" name="lockup" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Tier Downgrade Penalty <InfoButton title="Penalty for unstaking or falling below tier requirements" /></label><input type="text" name="downgradePenalty" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
 
-                            <div className="sm:col-span-2"><label className="block text-sm font-medium text-slate-900">Supported Spend Assets (List)</label><textarea name="spendAssets" rows={2} onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div className="sm:col-span-2"><label className="block text-sm font-medium text-slate-900">Funding Methods</label><textarea name="fundingMethods" rows={2} onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-2"><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Supported Spend Assets (List) <InfoButton title="Cryptocurrencies that can be spent with the card" /></label><textarea name="spendAssets" rows={2} onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div className="sm:col-span-2"><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Funding Methods <InfoButton title="Methods to add funds to the card (e.g., crypto transfer, bank transfer)" /></label><textarea name="fundingMethods" rows={2} onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
                         </div>
                     </div>
 
@@ -331,9 +468,9 @@ export default function GetListedPage() {
                             </div>
 
                             <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div><label className="block text-sm font-medium text-slate-900">Exclusive Merch</label><input type="text" name="merch" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                                <div><label className="block text-sm font-medium text-slate-900">Exclusive Club</label><input type="text" name="club" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                                <div className="sm:col-span-2"><label className="block text-sm font-medium text-slate-900">Additional Features</label><textarea name="additionalFeatures" rows={3} onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                                <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Exclusive Merch <InfoButton title="Exclusive merchandise or gifts for cardholders" /></label><input type="text" name="merch" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                                <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Exclusive Club <InfoButton title="Access to exclusive clubs or communities" /></label><input type="text" name="club" onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                                <div className="sm:col-span-2"><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Additional Features <InfoButton title="Any other features or benefits not listed above" /></label><textarea name="additionalFeatures" rows={3} onChange={handleChange} className="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
                             </div>
                         </div>
                     </div>
@@ -342,8 +479,8 @@ export default function GetListedPage() {
                     <div className="border-b border-gray-200 pb-12">
                         <h2 className="text-xl font-semibold leading-7 text-slate-900">Links & Legal</h2>
                         <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
-                            <div><label className="block text-sm font-medium text-slate-900">Application Link / CTA</label><input type="url" name="applyLink" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
-                            <div><label className="block text-sm font-medium text-slate-900">Terms & Conditions Link</label><input type="url" name="tcLink" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Application Link / CTA <InfoButton title="URL where users can apply for the card" /></label><input type="url" name="applyLink" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
+                            <div><label className="flex items-center gap-2 text-sm font-medium text-slate-900">Terms & Conditions Link <InfoButton title="URL to the card's terms and conditions" /></label><input type="url" name="tcLink" onChange={handleChange} className="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm" /></div>
                         </div>
                     </div>
 

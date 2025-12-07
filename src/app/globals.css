@@ -33,6 +33,24 @@
   animation: gradient-x 15s ease infinite;
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
 body {
   font-family: var(--font-sora), system-ui, sans-serif;
 }

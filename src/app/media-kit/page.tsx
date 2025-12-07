@@ -1,14 +1,14 @@
 export default function MediaKit() {
     return (
-        <main className="min-h-screen bg-white pt-32 pb-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-                <h1 className="text-4xl font-bold text-slate-900 mb-4">Media Kit</h1>
-                <p className="text-base text-slate-600 mb-12">
+        <main className="min-h-screen bg-white pt-28 pb-16 px-3 sm:px-5 lg:px-7">
+            <div className="max-w-3xl mx-auto">
+                <h1 className="text-3xl font-bold text-slate-900 mb-3">Media Kit</h1>
+                <p className="text-sm text-slate-600 mb-10">
                     Download our brand assets, logos, and guidelines for media and partnership use.
                 </p>
 
                 {/* Brand Overview */}
-                <section className="mb-16">
+                <section className="mb-14">
                     <h2 className="text-2xl font-semibold text-slate-900 mb-4">About Cardforyou</h2>
                     <p className="text-slate-700 leading-relaxed mb-4">
                         Cardforyou is the leading crypto card comparison platform, helping users find the perfect crypto card by comparing rewards, fees, and benefits from top providers worldwide.

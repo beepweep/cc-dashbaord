@@ -264,7 +264,7 @@ export default async function CardDetailPage({ params }: { params: Promise<{ id:
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <section className="relative pt-32 pb-20 overflow-hidden">
+            <section className="relative pt-28 pb-16 overflow-hidden">
                 {/* Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900">
                     <div className="absolute inset-0 opacity-10">
@@ -277,10 +277,10 @@ export default async function CardDetailPage({ params }: { params: Promise<{ id:
                     </div>
                 </div>
 
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex flex-col lg:flex-row gap-12 items-center">
+                <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-5 lg:px-7">
+                    <div className="flex flex-col lg:flex-row gap-10 items-center">
                         {/* Card Image - Clean Design */}
-                        <div className={`relative w-80 h-48 lg:w-96 lg:h-60 bg-gradient-to-br ${card.color} rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 hover:-rotate-1 transition-all duration-500`}>
+                        <div className={`relative w-72 h-44 lg:w-80 lg:h-52 bg-gradient-to-br ${card.color} rounded-xl overflow-hidden shadow-2xl transform hover:scale-105 hover:-rotate-1 transition-all duration-500`}>
                             {/* Card Background */}
                             <Image
                                 src={card.image}
@@ -358,9 +358,9 @@ export default async function CardDetailPage({ params }: { params: Promise<{ id:
             </section>
 
             {/* Details Section */}
-            <section className="py-20">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <section className="py-16">
+                <div className="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
                         {/* Main Content */}
                         <div className="lg:col-span-2 space-y-12">
                             {/* Description */}
@@ -470,10 +470,10 @@ export default async function CardDetailPage({ params }: { params: Promise<{ id:
             {/* Similar Cards */}
             {
                 similarCards.length > 0 && (
-                    <section className="py-20 bg-slate-50">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-8">Other Cards from {card.provider}</h2>
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <section className="py-16 bg-slate-50">
+                        <div className="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7">
+                            <h2 className="text-2xl font-bold text-slate-900 mb-7">Other Cards from {card.provider}</h2>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
                                 {similarCards.map((similarCard) => (
                                     <Link key={similarCard.id} href={`/explore-cards/${similarCard.id}`} className="group">
                                         <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">

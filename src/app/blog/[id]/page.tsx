@@ -482,7 +482,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
     return (
         <main className="min-h-screen bg-white">
             {/* Hero Section */}
-            <div className="relative h-96 bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden">
+            <div className="relative h-80 bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden">
                 <Image
                     src={post.image}
                     alt={post.title}
@@ -491,16 +491,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
 
-                <div className="relative h-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-12">
-                    <div className="mb-4">
-                        <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-white/90 text-slate-900">
+                <div className="relative h-full max-w-3xl mx-auto px-3 sm:px-5 lg:px-7 flex flex-col justify-end pb-10">
+                    <div className="mb-3">
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-medium bg-white/90 text-slate-900">
                             {post.category}
                         </span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                    <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
                         {post.title}
                     </h1>
-                    <div className="flex items-center gap-4 text-sm text-white/90">
+                    <div className="flex items-center gap-3 text-xs text-white/90">
                         <time>{post.date}</time>
                         <span>•</span>
                         <span>{post.readTime}</span>
@@ -509,8 +509,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ id: s
             </div>
 
             {/* Article Content */}
-            <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div className="prose prose-lg prose-slate max-w-none">
+            <article className="max-w-3xl mx-auto px-3 sm:px-5 lg:px-7 py-10">
+                <div className="prose prose-base prose-slate max-w-none">
                     {post.content.map((paragraph, index) => {
                         if (paragraph.startsWith('## ')) {
                             return (

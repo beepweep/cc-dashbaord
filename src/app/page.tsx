@@ -38,9 +38,9 @@ export default function Home() {
               />
             </div>
 
-            {/* Heading */}
+            {/* Heading with animated gradient */}
             <h1 className="text-[52px] font-semibold text-center leading-tight drop-shadow-md">
-              <span className="bg-clip-text text-transparent bg-gradient-to-b from-white/90 to-white/35">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 via-blue-500 via-purple-600 via-white to-cyan-300 animate-text-shimmer background-size-200">
                 Find the perfect card for you
               </span>
             </h1>

@@ -17,20 +17,18 @@
 }
 
 @keyframes gradient-x {
-
-  0%,
-  100% {
+  0% {
     background-position: 0% 50%;
   }
 
-  50% {
+  100% {
     background-position: 100% 50%;
   }
 }
 
 .animate-gradient-x {
-  background-size: 200% 200%;
-  animation: gradient-x 15s ease infinite;
+  background-size: 300% 300%;
+  animation: gradient-x 25s ease infinite;
 }
 
 @keyframes scroll {
@@ -49,6 +47,59 @@
 
 .animate-scroll:hover {
   animation-play-state: paused;
+}
+
+/* Text shimmer animation */
+@keyframes text-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animate-text-shimmer {
+  background-size: 200% auto;
+  animation: text-shimmer 12s linear infinite;
+}
+
+/* Floating card animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(var(--rotate, 0deg));
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(var(--rotate, 0deg));
+  }
+}
+
+@keyframes float-delayed {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(var(--rotate, 0deg));
+  }
+
+  50% {
+    transform: translateY(-16px) rotate(var(--rotate, 0deg));
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 6s ease-in-out infinite;
 }
 
 body {

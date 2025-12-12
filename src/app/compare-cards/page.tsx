@@ -11,12 +11,20 @@ interface CryptoCard {
     provider: string;
     image: string;
     type: "metal" | "plastic";
-    cashback: string;
+    network: "Visa" | "Mastercard";
+    region: string[];
+    baseCashback: string;
+    maxCashback: string;
     stakingRequired: boolean;
     stakingAmount?: string;
+    issuanceFee: string;
+    monthlyFee: string;
     annualFee: string;
     fxFee: string;
+    atmFee: string;
     features: string[];
+    mobileWallet: boolean;
+    loungeAccess: boolean;
     rating: number;
     color: string;
     verificationStatus: "verified" | "verification-ongoing" | "unverified";
@@ -30,11 +38,19 @@ const cryptoCards: CryptoCard[] = [
         provider: "KAST",
         image: "/cards/687e25222224cbfa18ce4933_k-card-core.webp",
         type: "plastic",
-        cashback: "2%",
+        network: "Mastercard",
+        region: ["Global"],
+        baseCashback: "0.5%",
+        maxCashback: "2%",
         stakingRequired: false,
+        issuanceFee: "$10",
+        monthlyFee: "$0",
         annualFee: "$0",
         fxFee: "0%",
+        atmFee: "Free up to $200",
         features: ["Rewards Points", "Instant Access", "0.25x KAST Points Boost", "Virtual Card"],
+        mobileWallet: true,
+        loungeAccess: false,
         rating: 4.3,
         color: "from-gray-400 to-gray-300",
         verificationStatus: "verified"
@@ -45,12 +61,20 @@ const cryptoCards: CryptoCard[] = [
         provider: "KAST",
         image: "/cards/687e5334d5169f3f67a3a83e_x-card-premium.webp",
         type: "metal",
-        cashback: "5%",
+        network: "Mastercard",
+        region: ["Global"],
+        baseCashback: "1%",
+        maxCashback: "5%",
         stakingRequired: true,
         stakingAmount: "$1,000/year",
+        issuanceFee: "$0",
+        monthlyFee: "$0",
         annualFee: "$1,000/year",
         fxFee: "0%",
+        atmFee: "Free up to $1000",
         features: ["Rewards Points", "Instant Access", "0.5x KAST Points Boost", "Premium Metal Card"],
+        mobileWallet: true,
+        loungeAccess: true,
         rating: 4.6,
         color: "from-slate-800 to-slate-600",
         verificationStatus: "verified",
@@ -62,12 +86,20 @@ const cryptoCards: CryptoCard[] = [
         provider: "KAST",
         image: "/cards/687e201c95962451497c3dcd_card-founders-edition.webp",
         type: "metal",
-        cashback: "5%",
+        network: "Mastercard",
+        region: ["Global"],
+        baseCashback: "2%",
+        maxCashback: "5%",
         stakingRequired: true,
         stakingAmount: "$5,000",
+        issuanceFee: "$0",
+        monthlyFee: "$0",
         annualFee: "$0",
         fxFee: "0%",
+        atmFee: "Free unlimited",
         features: ["Rewards Points", "VIP Concierge", "0.5x KAST Points Boost", "No Annual Fee", "Limited Edition"],
+        mobileWallet: true,
+        loungeAccess: true,
         rating: 4.8,
         color: "from-slate-900 to-slate-700",
         verificationStatus: "verified",
@@ -79,12 +111,20 @@ const cryptoCards: CryptoCard[] = [
         provider: "KAST",
         image: "/cards/687e57178f4d9881bbe2494f_solana-gold-card.webp",
         type: "metal",
-        cashback: "8%",
+        network: "Mastercard",
+        region: ["Global"],
+        baseCashback: "2%",
+        maxCashback: "8%",
         stakingRequired: true,
         stakingAmount: "$10,000/year",
+        issuanceFee: "$0",
+        monthlyFee: "$0",
         annualFee: "$10,000/year",
         fxFee: "0%",
+        atmFee: "Free unlimited",
         features: ["8% Rewards Points", "VIP Concierge", "1x KAST Points Boost", "24K Gold Plated"],
+        mobileWallet: true,
+        loungeAccess: true,
         rating: 4.9,
         color: "from-yellow-500 to-yellow-300",
         verificationStatus: "verified",
@@ -96,11 +136,19 @@ const cryptoCards: CryptoCard[] = [
         provider: "Bybit",
         image: "/cards/BybitCard-2.png",
         type: "plastic",
-        cashback: "2%",
+        network: "Mastercard",
+        region: ["EU", "UK"],
+        baseCashback: "2%",
+        maxCashback: "2%",
         stakingRequired: false,
+        issuanceFee: "$0",
+        monthlyFee: "$0",
         annualFee: "$0",
-        fxFee: "0%",
+        fxFee: "0.5%",
+        atmFee: "Free up to €200",
         features: ["Crypto Rewards", "Global Acceptance", "Instant Card Issuance", "No Annual Fee"],
+        mobileWallet: true,
+        loungeAccess: false,
         rating: 4.3,
         color: "from-gray-200 to-gray-100",
         verificationStatus: "verification-ongoing"
@@ -111,12 +159,20 @@ const cryptoCards: CryptoCard[] = [
         provider: "Crypto.com",
         image: "/site-bg-blue.png",
         type: "metal",
-        cashback: "8%",
+        network: "Visa",
+        region: ["Global", "US", "EU", "UK", "APAC"],
+        baseCashback: "5%",
+        maxCashback: "8%",
         stakingRequired: true,
         stakingAmount: "$400,000",
+        issuanceFee: "$0",
+        monthlyFee: "$0",
         annualFee: "$0",
         fxFee: "0%",
+        atmFee: "Free up to $1,000",
         features: ["Airport Lounge Access", "Private Jet Partnership", "Concierge Service", "Netflix & Spotify Rebate"],
+        mobileWallet: true,
+        loungeAccess: true,
         rating: 4.8,
         color: "from-slate-900 to-slate-700",
         verificationStatus: "verified"
@@ -127,12 +183,20 @@ const cryptoCards: CryptoCard[] = [
         provider: "Crypto.com",
         image: "/site-bg-final.jpg",
         type: "metal",
-        cashback: "5%",
+        network: "Visa",
+        region: ["Global", "US", "EU", "UK", "APAC"],
+        baseCashback: "3%",
+        maxCashback: "5%",
         stakingRequired: true,
         stakingAmount: "$40,000",
+        issuanceFee: "$0",
+        monthlyFee: "$0",
         annualFee: "$0",
         fxFee: "0%",
+        atmFee: "Free up to $1,000",
         features: ["Airport Lounge Access", "Netflix & Spotify Rebate", "10% Staking Rewards"],
+        mobileWallet: true,
+        loungeAccess: true,
         rating: 4.7,
         color: "from-blue-100 to-blue-50",
         verificationStatus: "verified"
@@ -143,12 +207,20 @@ const cryptoCards: CryptoCard[] = [
         provider: "Crypto.com",
         image: "/hero-bg.jpg",
         type: "metal",
-        cashback: "3%",
+        network: "Visa",
+        region: ["Global", "US", "EU", "UK", "APAC"],
+        baseCashback: "2%",
+        maxCashback: "3%",
         stakingRequired: true,
         stakingAmount: "$4,000",
+        issuanceFee: "$0",
+        monthlyFee: "$0",
         annualFee: "$0",
         fxFee: "0%",
+        atmFee: "Free up to $800",
         features: ["Netflix & Spotify Rebate", "Airport Lounge Access", "Free ATM Withdrawals"],
+        mobileWallet: true,
+        loungeAccess: true,
         rating: 4.6,
         color: "from-indigo-600 to-purple-600",
         verificationStatus: "verified"
@@ -159,11 +231,19 @@ const cryptoCards: CryptoCard[] = [
         provider: "Nexo",
         image: "/site-bg-blue.png",
         type: "metal",
-        cashback: "2%",
+        network: "Mastercard",
+        region: ["EU", "UK"],
+        baseCashback: "0.5%",
+        maxCashback: "2%",
         stakingRequired: false,
+        issuanceFee: "$0",
+        monthlyFee: "$0",
         annualFee: "$0",
         fxFee: "0%",
+        atmFee: "Free up to €10,000",
         features: ["No Staking Required", "Crypto-backed Credit", "Instant Approval", "Premium Support"],
+        mobileWallet: true,
+        loungeAccess: false,
         rating: 4.5,
         color: "from-blue-600 to-blue-800",
         verificationStatus: "verified"
@@ -174,11 +254,19 @@ const cryptoCards: CryptoCard[] = [
         provider: "Coinbase",
         image: "/site-bg-final.jpg",
         type: "plastic",
-        cashback: "4%",
+        network: "Visa",
+        region: ["US"],
+        baseCashback: "1%",
+        maxCashback: "4%",
         stakingRequired: false,
+        issuanceFee: "$0",
+        monthlyFee: "$0",
         annualFee: "$0",
         fxFee: "2.49%",
+        atmFee: "Free at Coinbase ATMs",
         features: ["Choose Your Crypto Rewards", "No Annual Fee", "Google Pay & Apple Pay", "Instant Spending"],
+        mobileWallet: true,
+        loungeAccess: false,
         rating: 4.2,
         color: "from-blue-500 to-indigo-600",
         verificationStatus: "verification-ongoing"
@@ -245,38 +333,76 @@ function CompareCardsContent() {
             </div>
 
             <div className="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7 py-10">
-                {/* Selected Cards Preview */}
+                {/* Floating Selection Bar */}
                 {selectedCards.length > 0 && (
-                    <div className="bg-white rounded-2xl p-6 mb-8 shadow-sm border border-slate-200">
-                        <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-lg font-semibold text-slate-900">
-                                Selected for Comparison ({selectedCards.length}/3)
-                            </h3>
-                            <button
-                                onClick={() => setSelectedCards([])}
-                                className="text-sm text-slate-500 hover:text-slate-700"
-                            >
-                                Clear all
-                            </button>
-                        </div>
-                        <div className="flex gap-4 flex-wrap">
-                            {comparisonCards.map((card) => (
-                                <div key={card.id} className="flex items-center gap-3 bg-slate-50 rounded-xl px-4 py-2">
-                                    <div className={`w-12 h-8 bg-gradient-to-br ${card.color} rounded-lg`}></div>
-                                    <div>
-                                        <p className="text-sm font-medium text-slate-900">{card.name}</p>
-                                        <p className="text-xs text-slate-500">{card.provider}</p>
+                    <div className="fixed bottom-6 left-0 right-0 mx-auto w-fit bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl z-50 animate-slide-up-y">
+                        <div className="px-5 py-3.5">
+                            <div className="flex items-center justify-center gap-5">
+                                {/* Selected Cards */}
+                                <div className="flex items-center gap-3">
+                                    <span className="text-xs font-medium text-slate-400 hidden sm:block">
+                                        Selected:
+                                    </span>
+                                    <div className="flex gap-2">
+                                        {comparisonCards.map((card) => (
+                                            <div
+                                                key={card.id}
+                                                className="flex items-center gap-2 bg-slate-800 rounded-xl px-3 py-2 border border-slate-700/50"
+                                            >
+                                                <div className={`w-7 h-4 rounded bg-gradient-to-br ${card.color}`}></div>
+                                                <span className="text-sm font-medium text-white hidden sm:block">{card.name}</span>
+                                                <button
+                                                    onClick={() => toggleCard(card.id)}
+                                                    className="text-slate-500 hover:text-white transition-colors ml-1"
+                                                >
+                                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        ))}
+                                        {/* Empty slots indicator */}
+                                        {selectedCards.length < 3 && (
+                                            <div className="flex items-center gap-1.5 text-slate-500">
+                                                {[...Array(3 - selectedCards.length)].map((_, i) => (
+                                                    <div
+                                                        key={`empty-${i}`}
+                                                        className="w-2 h-2 rounded-full bg-slate-700"
+                                                    />
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
-                                    <button
-                                        onClick={() => toggleCard(card.id)}
-                                        className="ml-2 text-slate-400 hover:text-slate-600"
-                                    >
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </button>
                                 </div>
-                            ))}
+
+                                {/* Divider */}
+                                <div className="w-px h-8 bg-slate-700 hidden sm:block" />
+
+                                {/* Actions */}
+                                <div className="flex items-center gap-3">
+                                    <button
+                                        onClick={() => setSelectedCards([])}
+                                        className="text-xs text-slate-400 hover:text-white transition-colors"
+                                    >
+                                        Clear
+                                    </button>
+                                    <a
+                                        href="#comparison-table"
+                                        className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${selectedCards.length >= 2
+                                            ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/25"
+                                            : "bg-slate-700 text-slate-400 cursor-not-allowed"
+                                            }`}
+                                        onClick={(e) => {
+                                            if (selectedCards.length >= 2) {
+                                                document.getElementById('comparison-table')?.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                            e.preventDefault();
+                                        }}
+                                    >
+                                        View Comparison {selectedCards.length >= 2 ? `↓` : `(${selectedCards.length}/2)`}
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 )}
@@ -444,7 +570,7 @@ function CompareCardsContent() {
 
                 {/* Comparison Table */}
                 {comparisonCards.length > 0 && (
-                    <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+                    <div id="comparison-table" className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm scroll-mt-6">
                         <div className="p-6 border-b border-slate-200 bg-slate-50">
                             <h2 className="text-xl font-bold text-slate-900">Comparison</h2>
                         </div>

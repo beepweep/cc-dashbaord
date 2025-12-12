@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 
-const sora = Sora({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-sora",
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -80,7 +80,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.png" />
         <meta name="theme-color" content="#1e293b" />
       </head>
-      <body className={sora.variable}>
+      <body className={outfit.variable}>
         <Header />
         {children}
         <Footer />

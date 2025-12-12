@@ -424,7 +424,7 @@ export default function ExploreCardsPage() {
                                                 name="network"
                                                 className="hidden"
                                                 checked={selectedNetwork === network}
-                                                onChange={() => setSelectedNetwork(network as any)}
+                                                onChange={() => setSelectedNetwork(network as "all" | "Visa" | "Mastercard")}
                                             />
                                             <span className={`text-sm ${selectedNetwork === network ? "text-slate-900 font-medium" : "text-slate-600 group-hover:text-slate-900"}`}>
                                                 {network === "all" ? "All Networks" : network}
@@ -467,7 +467,7 @@ export default function ExploreCardsPage() {
                                     {["all", "metal", "plastic"].map((type) => (
                                         <button
                                             key={type}
-                                            onClick={() => setSelectedType(type as any)}
+                                            onClick={() => setSelectedType(type as "all" | "metal" | "plastic")}
                                             className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${selectedType === type
                                                 ? "bg-slate-900 border-slate-900 text-white"
                                                 : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
@@ -499,7 +499,7 @@ export default function ExploreCardsPage() {
                                                 name="staking"
                                                 className="hidden"
                                                 checked={selectedStaking === option.id}
-                                                onChange={() => setSelectedStaking(option.id as any)}
+                                                onChange={() => setSelectedStaking(option.id as "all" | "required" | "none")}
                                             />
                                             <span className={`text-sm ${selectedStaking === option.id ? "text-slate-900 font-medium" : "text-slate-600 group-hover:text-slate-900"}`}>
                                                 {option.label}
@@ -530,7 +530,7 @@ export default function ExploreCardsPage() {
                                                 name="cashback"
                                                 className="hidden"
                                                 checked={selectedCashback === option.id}
-                                                onChange={() => setSelectedCashback(option.id as any)}
+                                                onChange={() => setSelectedCashback(option.id as "all" | "low" | "medium" | "high")}
                                             />
                                             <span className={`text-sm ${selectedCashback === option.id ? "text-slate-900 font-medium" : "text-slate-600 group-hover:text-slate-900"}`}>
                                                 {option.label}
@@ -560,7 +560,7 @@ export default function ExploreCardsPage() {
                                                 name="fee"
                                                 className="hidden"
                                                 checked={selectedFee === option.id}
-                                                onChange={() => setSelectedFee(option.id as any)}
+                                                onChange={() => setSelectedFee(option.id as "all" | "free" | "paid")}
                                             />
                                             <span className={`text-sm ${selectedFee === option.id ? "text-slate-900 font-medium" : "text-slate-600 group-hover:text-slate-900"}`}>
                                                 {option.label}
@@ -690,7 +690,7 @@ export default function ExploreCardsPage() {
                                 <span className="text-sm font-medium text-slate-700 whitespace-nowrap">Sort by:</span>
                                 <select
                                     value={sortBy}
-                                    onChange={(e) => setSortBy(e.target.value as any)}
+                                    onChange={(e) => setSortBy(e.target.value as "rating" | "cashback" | "name")}
                                     className="bg-white border border-slate-200 text-slate-700 text-sm rounded-lg px-3 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 cursor-pointer"
                                 >
                                     <option value="rating">Top Rated</option>
@@ -903,141 +903,137 @@ export default function ExploreCardsPage() {
                                                 <span>No staking required</span>
                                             </div>
                                         )}
-                                    </span>
-                                    ))}
-                                    {card.features.length > 2 && (
-                                        <span className="text-xs px-2.5 py-1 bg-slate-100 text-slate-500 rounded-md">
-                                            +{card.features.length - 2} more
-                                        </span>
-                                    )}
-                                </div>
 
-                                {/* CTA */ }
-                                < div className = "flex items-center justify-between" >
-                                    <span className="text-sm font-semibold text-blue-600 group-hover:text-blue-700">
-                                        View Details
-                                    </span>
-                                    <svg className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+
+
+                                        {/* CTA */}
+                                        <div className="flex items-center justify-between">
+                                            <span className="text-sm font-semibold text-blue-600 group-hover:text-blue-700">
+                                                View Details
+                                            </span>
+                                            <svg className="w-5 h-5 text-blue-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
+
+                        {/* No Results */}
+                        {sortedCards.length === 0 && (
+                            <div className="text-center py-12 bg-slate-50 rounded-2xl border border-slate-200">
+                                <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                 </div>
+                                <p className="text-slate-700 font-medium mb-2">No cards match your filters</p>
+                                <p className="text-slate-500 text-sm mb-4">Try adjusting your selection or request a new card listing.</p>
+                                <Link
+                                    href="/request-card"
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                                >
+                                    Request a Card Listing
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </Link>
+                            </div>
+                        )}
+
+                        {/* Can't find your card? CTA */}
+                        {sortedCards.length > 0 && (
+                            <div className="mt-12 p-6 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div>
+                                    <h3 className="text-lg font-semibold text-slate-900 mb-1">Can&apos;t find a card?</h3>
+                                    <p className="text-sm text-slate-600">Let us know which card you&apos;d like to see listed on Cardforyou.</p>
+                                </div>
+                                <Link
+                                    href="/request-card"
+                                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap"
+                                >
+                                    Request a Listing
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                                    </svg>
+                                </Link>
+                            </div>
+                        )}
                     </div>
-                </Link>
-                    ))}
+                </div>
             </div>
 
-            {/* No Results */}
-            {sortedCards.length === 0 && (
-                <div className="text-center py-12 bg-slate-50 rounded-2xl border border-slate-200">
-                    <div className="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                        <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </div>
-                    <p className="text-slate-700 font-medium mb-2">No cards match your filters</p>
-                    <p className="text-slate-500 text-sm mb-4">Try adjusting your selection or request a new card listing.</p>
-                    <Link
-                        href="/request-card"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
-                    >
-                        Request a Card Listing
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </Link>
-                </div>
-            )}
-
-            {/* Can't find your card? CTA */}
-            {sortedCards.length > 0 && (
-                <div className="mt-12 p-6 bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div>
-                        <h3 className="text-lg font-semibold text-slate-900 mb-1">Can't find a card?</h3>
-                        <p className="text-sm text-slate-600">Let us know which card you'd like to see listed on Cardforyou.</p>
-                    </div>
-                    <Link
-                        href="/request-card"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-800 transition-colors whitespace-nowrap"
-                    >
-                        Request a Listing
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                        </svg>
-                    </Link>
-                </div>
-            )}
-        </div>
-
-            {/* Floating Comparison Bar */ }
-    {
-        compareCards.length > 0 && (
-            <div className="fixed bottom-6 left-0 right-0 mx-auto w-fit bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl z-50 animate-slide-up-y">
-                <div className="px-5 py-3.5">
-                    <div className="flex items-center justify-center gap-5">
-                        {/* Selected Cards */}
-                        <div className="flex items-center gap-3">
-                            <span className="text-xs font-medium text-slate-400 hidden sm:block">
-                                Compare:
-                            </span>
-                            <div className="flex gap-2">
-                                {comparedCardObjects.map((card) => (
-                                    <div
-                                        key={card.id}
-                                        className="flex items-center gap-2 bg-slate-800 rounded-xl px-3 py-2 border border-slate-700/50"
-                                    >
-                                        <div className={`w-7 h-4 rounded bg-gradient-to-br ${card.color}`}></div>
-                                        <span className="text-sm font-medium text-white hidden sm:block">{card.name}</span>
-                                        <button
-                                            onClick={(e) => toggleCompare(card.id, e)}
-                                            className="text-slate-500 hover:text-white transition-colors ml-1"
-                                        >
-                                            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                ))}
-                                {/* Empty slots indicator */}
-                                {compareCards.length < 3 && (
-                                    <div className="flex items-center gap-1.5 text-slate-500">
-                                        {[...Array(3 - compareCards.length)].map((_, i) => (
+            {/* Floating Comparison Bar */}
+            {
+                compareCards.length > 0 && (
+                    <div className="fixed bottom-6 left-0 right-0 mx-auto w-fit bg-slate-900/95 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl z-50 animate-slide-up-y">
+                        <div className="px-5 py-3.5">
+                            <div className="flex items-center justify-center gap-5">
+                                {/* Selected Cards */}
+                                <div className="flex items-center gap-3">
+                                    <span className="text-xs font-medium text-slate-400 hidden sm:block">
+                                        Compare:
+                                    </span>
+                                    <div className="flex gap-2">
+                                        {comparedCardObjects.map((card) => (
                                             <div
-                                                key={`empty-${i}`}
-                                                className="w-2 h-2 rounded-full bg-slate-700"
-                                            />
+                                                key={card.id}
+                                                className="flex items-center gap-2 bg-slate-800 rounded-xl px-3 py-2 border border-slate-700/50"
+                                            >
+                                                <div className={`w-7 h-4 rounded bg-gradient-to-br ${card.color}`}></div>
+                                                <span className="text-sm font-medium text-white hidden sm:block">{card.name}</span>
+                                                <button
+                                                    onClick={(e) => toggleCompare(card.id, e)}
+                                                    className="text-slate-500 hover:text-white transition-colors ml-1"
+                                                >
+                                                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                                    </svg>
+                                                </button>
+                                            </div>
                                         ))}
+                                        {/* Empty slots indicator */}
+                                        {compareCards.length < 3 && (
+                                            <div className="flex items-center gap-1.5 text-slate-500">
+                                                {[...Array(3 - compareCards.length)].map((_, i) => (
+                                                    <div
+                                                        key={`empty-${i}`}
+                                                        className="w-2 h-2 rounded-full bg-slate-700"
+                                                    />
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
-                                )}
+                                </div>
+
+                                {/* Divider */}
+                                <div className="w-px h-8 bg-slate-700 hidden sm:block" />
+
+                                {/* Actions */}
+                                <div className="flex items-center gap-3">
+                                    <button
+                                        onClick={() => setCompareCards([])}
+                                        className="text-xs text-slate-400 hover:text-white transition-colors"
+                                    >
+                                        Clear
+                                    </button>
+                                    <Link
+                                        href={`/compare-cards?cards=${compareCards.join(',')}`}
+                                        className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${compareCards.length >= 2
+                                            ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/25"
+                                            : "bg-slate-700 text-slate-400 cursor-not-allowed"
+                                            }`}
+                                        onClick={(e) => compareCards.length < 2 && e.preventDefault()}
+                                    >
+                                        Compare {compareCards.length >= 2 ? `→` : `(${compareCards.length}/2)`}
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-
-                        {/* Divider */}
-                        <div className="w-px h-8 bg-slate-700 hidden sm:block" />
-
-                        {/* Actions */}
-                        <div className="flex items-center gap-3">
-                            <button
-                                onClick={() => setCompareCards([])}
-                                className="text-xs text-slate-400 hover:text-white transition-colors"
-                            >
-                                Clear
-                            </button>
-                            <Link
-                                href={`/compare-cards?cards=${compareCards.join(',')}`}
-                                className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${compareCards.length >= 2
-                                    ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/25"
-                                    : "bg-slate-700 text-slate-400 cursor-not-allowed"
-                                    }`}
-                                onClick={(e) => compareCards.length < 2 && e.preventDefault()}
-                            >
-                                Compare {compareCards.length >= 2 ? `→` : `(${compareCards.length}/2)`}
-                            </Link>
-                        </div>
                     </div>
-                </div>
-            </div>
-        )
-    }
+                )
+            }
         </main >
     );
 }

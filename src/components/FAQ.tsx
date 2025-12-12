@@ -9,24 +9,24 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
     {
-        question: "What is Cardforyou?",
-        answer: "Cardforyou is a comprehensive comparison platform for crypto cards. We help you find the perfect crypto card by comparing rewards, fees, benefits, and features from leading providers worldwide. Make informed decisions and maximize your crypto spending benefits."
+        question: "What is Space?",
+        answer: "Space is a decentralized prediction market platform on Solana where you trade real-world outcomes across: crypto, politics, sports, technology, economy, culture, and beyond. Buy YES or NO shares on what you think will happen. If you're right, you get paid. Cash out anytime or hold until resolution."
     },
     {
-        question: "How do I choose the right crypto card?",
-        answer: "Consider your spending habits, preferred rewards (cashback, crypto rewards, or points), annual fees, staking requirements, and supported regions. Use our comparison tool to filter cards based on your priorities and find the best match for your lifestyle."
+        question: "What makes Space different?",
+        answer: "Space offers lightning-fast execution on Solana, a wide range of markets beyond just crypto, and a user-friendly interface designed for both beginners and pro traders. We prioritize transparency and community governance."
     },
     {
-        question: "Are crypto cards safe to use?",
-        answer: "Crypto cards from reputable providers are generally safe and regulated. They operate similarly to traditional debit or credit cards but are funded with cryptocurrency. Always verify the provider's licensing, security measures, and user reviews before applying."
+        question: "When will Space launch?",
+        answer: "Space is currently in its mainnet beta phase. We are rolling out features incrementally to ensure platform stability and security. Follow our social channels for the latest launch updates."
     },
     {
-        question: "Do I need to stake tokens to get a crypto card?",
-        answer: "It depends on the card. Some premium crypto cards require you to stake a certain amount of their native token to unlock higher reward tiers and benefits. However, many providers also offer entry-level cards with no staking requirements."
+        question: "When will $SPACE go live?",
+        answer: "$SPACE token generation event (TGE) details will be announced soon. Join our discord and follow us on X to be the first to know about airdrops and token launch dates."
     },
     {
-        question: "How can I get my card listed on Cardforyou?",
-        answer: "If you're a crypto card provider, simply visit our 'Get Listed' page and fill out the application form with your card details, fees, rewards, and features. Our team will review your submission and get back to you within 5-7 business days."
+        question: "Where can I get support?",
+        answer: "You can get support 24/7 through our Discord server. Our community managers and support team are always ready to help you with any issues or questions you might have."
     }
 ];
 
@@ -57,10 +57,10 @@ export default function FAQ() {
                             key={index}
                             className={`group relative overflow-hidden transition-all duration-300 ${openIndex === index
                                 ? 'bg-[#111] rounded-2xl my-4'
-                                : 'border-b border-white/10'
+                                : 'border-b border-white/10 hover:bg-white/5'
                                 }`}
                             style={openIndex === index ? {
-                                backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 8px)'
+                                backgroundImage: 'repeating-linear-gradient(135deg, #141414 0px, #141414 4px, transparent 4px, transparent 6px)'
                             } : {}}
                         >
                             <button

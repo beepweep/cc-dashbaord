@@ -138,7 +138,7 @@
                             class="flex flex-wrap gap-4 justify-center lg:justify-start"
                         >
                             <a
-                                href="#"
+                                href="#apply"
                                 class="px-8 py-4 bg-white text-slate-900 font-semibold rounded-full hover:bg-white/90 hover:scale-105 transition-all shadow-lg"
                             >
                                 Apply Now
@@ -356,7 +356,7 @@
                                 {card.baseCashback} cashback on all purchases.
                             </p>
                             <a
-                                href="#"
+                                href="#apply"
                                 class="block w-full py-4 bg-white text-slate-900 font-semibold rounded-full text-center hover:bg-white/90 transition-all hover:scale-105"
                             >
                                 Apply Now →

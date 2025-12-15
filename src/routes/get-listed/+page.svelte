@@ -921,7 +921,7 @@
                             rows="2"
                             bind:value={formData.additionalPoints}
                             class="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm"
-                        />
+                        ></textarea>
                     </div>
                 </div>
             </div>
@@ -1003,7 +1003,7 @@
                             rows="2"
                             bind:value={formData.spendAssets}
                             class="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm"
-                        />
+                        ></textarea>
                     </div>
                     <div class="sm:col-span-2">
                         <label
@@ -1017,7 +1017,7 @@
                             rows="2"
                             bind:value={formData.fundingMethods}
                             class="mt-2 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm"
-                        />
+                        ></textarea>
                     </div>
                 </div>
             </div>
@@ -1184,7 +1184,7 @@
                                 rows="3"
                                 bind:value={formData.additionalFeatures}
                                 class="mt-1 block w-full rounded-md border-0 bg-white py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-gray-300 sm:text-sm"
-                            />
+                            ></textarea>
                         </div>
                     </div>
                 </div>

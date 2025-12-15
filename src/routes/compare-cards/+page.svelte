@@ -115,6 +115,7 @@
                                         <button
                                             onclick={() => toggleCard(card.id)}
                                             class="text-slate-500 hover:text-white transition-colors ml-1"
+                                            aria-label="Remove {card.name} from comparison"
                                         >
                                             <svg
                                                 class="w-3.5 h-3.5"
@@ -283,6 +284,7 @@
                         <button
                             onclick={() => (searchQuery = "")}
                             class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                            aria-label="Clear search"
                         >
                             <svg
                                 class="w-5 h-5"

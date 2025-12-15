@@ -269,7 +269,7 @@
                 inquiries, please contact our team.
             </p>
             <a
-                href="#"
+                href="mailto:contact@cardforyou.com"
                 class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-500 font-medium"
             >
                 Contact Us

@@ -112,53 +112,6 @@
                             </div>
                         </div>
 
-                        <!-- Rating - Laurel Design -->
-                        <div
-                            class="flex flex-col items-center lg:items-start mb-8"
-                        >
-                            <div class="flex items-center gap-4">
-                                <!-- Left Laurel -->
-                                <svg
-                                    class="w-14 h-14 text-yellow-500 drop-shadow-sm"
-                                    viewBox="0 0 100 100"
-                                    fill="currentColor"
-                                >
-                                    <path
-                                        d="M50 95 C20 95 10 50 20 25 C25 35 30 40 40 40 C35 30 35 15 45 5 C50 15 55 20 50 35 C60 25 70 20 80 20 C70 35 65 45 70 55 C60 50 50 60 50 70 C40 60 30 70 25 80 C35 75 45 80 50 95 Z"
-                                    />
-                                </svg>
-
-                                <span
-                                    class="text-7xl font-bold text-white tracking-tighter drop-shadow-md"
-                                >
-                                    {card.rating}
-                                </span>
-
-                                <!-- Right Laurel (Flipped) -->
-                                <svg
-                                    class="w-14 h-14 text-yellow-500 drop-shadow-sm transform scale-x-[-1]"
-                                    viewBox="0 0 100 100"
-                                    fill="currentColor"
-                                >
-                                    <path
-                                        d="M50 95 C20 95 10 50 20 25 C25 35 30 40 40 40 C35 30 35 15 45 5 C50 15 55 20 50 35 C60 25 70 20 80 20 C70 35 65 45 70 55 C60 50 50 60 50 70 C40 60 30 70 25 80 C35 75 45 80 50 95 Z"
-                                    />
-                                </svg>
-                            </div>
-
-                            <div class="text-center lg:text-left mt-2">
-                                <h3
-                                    class="text-lg font-bold text-white mb-1 drop-shadow-sm"
-                                >
-                                    User Favourite
-                                </h3>
-                                <p
-                                    class="text-sm text-white/80 max-w-[260px] leading-snug mx-auto lg:mx-0"
-                                >
-                                    This card is in the top 10% of eligible
-                                    listings based on ratings, rewards and
-                                    reliability.
-                                </p>
                             </div>
                         </div>
 

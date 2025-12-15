@@ -103,7 +103,7 @@
         </div>
         <div class="mt-7 pt-7 border-t border-slate-900 text-center">
             <p
-                class="text-[5px] text-white/30 max-w-3xl mx-auto leading-relaxed uppercase tracking-wider"
+                class="text-[10px] text-white/30 max-w-3xl mx-auto leading-relaxed uppercase tracking-wider"
             >
                 Disclaimer: The content on Cardforyou is for informational
                 purposes only and does not constitute financial, investment, or

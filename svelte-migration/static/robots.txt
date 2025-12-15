@@ -1,9 +1,0 @@
-# Robots.txt for Cardforyou
-User-agent: *
-Allow: /
-
-# Sitemaps
-Sitemap: https://cardforyou.com/sitemap.xml
-
-# Disallow admin areas (if any)
-Disallow: /api/

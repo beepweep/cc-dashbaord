@@ -112,26 +112,54 @@
                             </div>
                         </div>
 
-                        <!-- Rating -->
+                        <!-- Rating - Laurel Design -->
                         <div
-                            class="flex items-center gap-2 justify-center lg:justify-start mb-8"
+                            class="flex flex-col items-center lg:items-start mb-8"
                         >
-                            <div class="flex">
-                                {#each Array(5) as _, i}
-                                    <svg
-                                        class={`w-6 h-6 ${i < Math.floor(card.rating) ? "text-yellow-400" : "text-white/30"}`}
-                                        fill="currentColor"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path
-                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                                        />
-                                    </svg>
-                                {/each}
+                            <div class="flex items-center gap-4">
+                                <!-- Left Laurel -->
+                                <svg
+                                    class="w-14 h-14 text-yellow-500 drop-shadow-sm"
+                                    viewBox="0 0 100 100"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M50 95 C20 95 10 50 20 25 C25 35 30 40 40 40 C35 30 35 15 45 5 C50 15 55 20 50 35 C60 25 70 20 80 20 C70 35 65 45 70 55 C60 50 50 60 50 70 C40 60 30 70 25 80 C35 75 45 80 50 95 Z"
+                                    />
+                                </svg>
+
+                                <span
+                                    class="text-7xl font-bold text-white tracking-tighter drop-shadow-md"
+                                >
+                                    {card.rating}
+                                </span>
+
+                                <!-- Right Laurel (Flipped) -->
+                                <svg
+                                    class="w-14 h-14 text-yellow-500 drop-shadow-sm transform scale-x-[-1]"
+                                    viewBox="0 0 100 100"
+                                    fill="currentColor"
+                                >
+                                    <path
+                                        d="M50 95 C20 95 10 50 20 25 C25 35 30 40 40 40 C35 30 35 15 45 5 C50 15 55 20 50 35 C60 25 70 20 80 20 C70 35 65 45 70 55 C60 50 50 60 50 70 C40 60 30 70 25 80 C35 75 45 80 50 95 Z"
+                                    />
+                                </svg>
                             </div>
-                            <span class="text-xl font-semibold text-white"
-                                >{card.rating}</span
-                            >
+
+                            <div class="text-center lg:text-left mt-2">
+                                <h3
+                                    class="text-lg font-bold text-white mb-1 drop-shadow-sm"
+                                >
+                                    User Favourite
+                                </h3>
+                                <p
+                                    class="text-sm text-white/80 max-w-[260px] leading-snug mx-auto lg:mx-0"
+                                >
+                                    This card is in the top 10% of eligible
+                                    listings based on ratings, rewards and
+                                    reliability.
+                                </p>
+                            </div>
                         </div>
 
                         <div

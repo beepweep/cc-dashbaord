@@ -2,7 +2,7 @@
     const currentYear = new Date().getFullYear();
 </script>
 
-<footer class="bg-black text-slate-300 py-10 border-t border-slate-900">
+<footer class="bg-black text-white py-10 border-t border-slate-900">
     <div class="max-w-6xl mx-auto px-3 sm:px-5 lg:px-7">
         <div class="flex flex-col md:flex-row justify-between gap-7 mb-10">
             <div class="max-w-sm">
@@ -22,7 +22,7 @@
                         >Cardforyou</span
                     >
                 </div>
-                <p class="text-xs text-slate-500 leading-relaxed">
+                <p class="text-xs text-white/60 leading-relaxed">
                     Find the perfect crypto card for your lifestyle. Compare
                     rewards, fees, and benefits instantly.
                 </p>
@@ -32,7 +32,7 @@
         <div
             class="pt-7 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-5"
         >
-            <p class="text-[10px] text-slate-600 order-3 md:order-1">
+            <p class="text-[10px] text-white/50 order-3 md:order-1">
                 &copy; {currentYear} Cardforyou. All rights reserved.
             </p>
 
@@ -40,7 +40,7 @@
                 class="flex flex-col md:flex-row items-center gap-5 order-1 md:order-2"
             >
                 <div
-                    class="flex flex-wrap justify-center gap-5 text-[10px] text-slate-500 font-medium order-2 md:order-1"
+                    class="flex flex-wrap justify-center gap-5 text-[10px] text-white/60 font-medium order-2 md:order-1"
                 >
                     <a
                         href="/media-kit"
@@ -66,7 +66,7 @@
                 <div class="flex gap-3 order-1 md:order-2">
                     <a
                         href="javascript:void(0)"
-                        class="text-slate-500 hover:text-white transition-colors"
+                        class="text-white/60 hover:text-white transition-colors"
                     >
                         <span class="sr-only">Twitter</span>
                         <svg
@@ -83,7 +83,7 @@
                         href="https://github.com/beepweep/cc-dashboard"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="text-slate-500 hover:text-white transition-colors"
+                        class="text-white/60 hover:text-white transition-colors"
                     >
                         <span class="sr-only">GitHub</span>
                         <svg
